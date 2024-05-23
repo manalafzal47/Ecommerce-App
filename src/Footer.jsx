@@ -5,7 +5,6 @@ import instagramIcon from './styles/instagram-icon.png';
 import facebookIcon from './styles/facebook-icon.png';
 import twitterIcon from './styles/twitter-icon.png';
 import linkedInIcon from './styles/linkedIn-icon.png';
-import youtubeIcon from './styles/youtube-icon.png';
 
 function Footer() {
     return (
@@ -16,7 +15,6 @@ function Footer() {
             <div><img src = {facebookIcon} alt="Facebook Icon" /> </div>
             <div><img src = {twitterIcon} alt = "Twitter Icon" /></div>
             <div><img src = {linkedInIcon} alt = "LinkedIn Icon" /></div>
-            <div><img src = {youtubeIcon} alt="Youtube Icon" /></div>
         </div>
 
         <div>

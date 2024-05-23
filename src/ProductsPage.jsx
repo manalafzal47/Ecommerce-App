@@ -4,17 +4,39 @@ import {NavLink} from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import React from "react";
 import {useState,useEffect} from "react";
-import {Input, Space, Dropdown} from 'antd';
+import {Input, Space, Dropdown, Modal} from 'antd';
 import './styles/style.css';
 import ShopPageImage from './styles/banner.png';
 import { DownOutlined } from '@ant-design/icons';
 import Footer from './Footer.jsx';
+// import Checkout from './CheckOut.jsx';
+// import FunctionContext from './FunctionContext';
+import WomensClothing from "./styles/women's_clothing.png";
+import MensClothing from "./styles/mens_clothing.png";
+import Jewelerry from "./styles/jewelerry.png";
+import Electronics from "./styles/electronics.png";
+import Cart from "./styles/cart.png";
 
 function ProductsPage(){
     const [products, setProducts] = useState([]);
     const [cartCount, setCartCount] = useState(0);
     const [filter, setFilter] = useState([]);
     const [cart, setCart] = useState([]);
+    const[quantity, setQuantity] = useState(0);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const showModal = () => {
+        setIsModalOpen(true);
+    }
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+
+    }
+
+    const handleCancel=()=>{
+        setIsModalOpen(false);
+    }
 
     function fetchProducts(){
         fetch('https://fakestoreapi.com/products')
@@ -123,53 +145,52 @@ function ProductsPage(){
                             </a>
                         </Dropdown>
                     </div>
-
-                    <div className = "nav-item">
-                        <Nav.Item>
-                            <Nav.Link as = {NavLink} to = "/"> Deals</Nav.Link>
-                        </Nav.Item>
-                    </div>
-                    
-                    <div className = "nav-item">
-                        <Nav.Item>
-                            <Nav.Link as={NavLink} to = "/checkout">Checkout</Nav.Link>
-                        </Nav.Item>
-                    </div>
-
-                    <div className = "search-container">
-                        <Space direction = "vertical">
-                            <Search 
-                                placeholder = "input search text"
-                                onSearch = {onSearch}
-                                style = {{
-                                    width:200,
-                                }}
-                            />
-                        </Space>
-                    </div>
-                    <div className = "account"> <h6>Account</h6> </div>
-
-                    <div className = "cart"> <h6>{cartCount} Cart</h6></div>
                 </Nav>
-                
+
             </div>
+
+            <div className = "cart"> 
+                <div><img src = {Cart} alt="Cart"/>
+                    {cartCount}
+                </div>
+
+                <button className = "check-btn" onClick = {showModal}>
+                    Checkout
+                </button> 
+            </div>
+
         </div>
+
+        <Modal title="Proceed to CheckOut" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+            <div className ="cart-title"><h3>Your Cart</h3></div>
+            
+                    <div className = "cart-nav-container">
+                        <ul>
+                            <li>Product</li>
+                            <li>Description</li>
+                            <li>Qty</li>
+                            <li>Price</li>
+                        </ul>
+                    </div>
+                                
+                    <div>   
+                        {/* displaying the items in the cart */}
+                        <div className="cart-container">
+                            {cart.map((item)=> 
+                            <div className = "flex-container">
+                                <div className = "cart-image-container"><img src = {item.image} alt = {item.title} width="50"/></div>
+                                <div className = "cart-title">{item.title}</div>
+                                <div className = "cart-price">$ {item.price}</div>
+                            </div>
+                            )}
+                        </div>
+                    </div>
+
+            <div className = "horizontal-line"></div>
+        </Modal>
 
         <div className="shop-container">
             <div className = "shopPage-img-container"><img src = {ShopPageImage} alt = "shoppageimage" /></div>
-        </div>
-
-        <div>   
-            {/* displaying the items in the cart */}
-            <div className="cart-container">
-                {cart.map((item)=> 
-                <div>
-                    <div className = "cart-image-container"><img src = {item.image} alt = {item.title} width="100"/></div>
-                    <div className = "cart-title">{item.title}</div>
-                </div>
-                )}
-                <div><button> Checkout</button></div>
-            </div>
         </div>
 
         <div className = "gurantees-container">
@@ -187,15 +208,47 @@ function ProductsPage(){
                 <h4>24/7 SUPPORT</h4>
                 <p>Online Support 24/7</p>
             </div>
+        </div> 
+
+        <h2 className = "categories-title">Categories</h2>
+        <div className = "categories-title-line"></div>
+
+        <div className = "categories-container">
+            <div className = "electronics-item-container">
+                <div><img src = {Electronics} width="200" height="200"/></div>
+                <div>
+                    <div>ELECTRONICS</div>
+                    <div className = "categories-line"></div>
+                </div>
+                <div><button onClick = { () => filterByCategories('electronics')}>Shop Now</button></div>
+            </div>  
+
+            <div className = "jewelery-item-container">
+                <div><img src = {Jewelerry} width="210" height="200"/></div>
+                    <div className = "item-container">JEWELERRY</div>
+                    <div className = "categories-line"></div>
+                <button onClick = { () => filterByCategories('jewelery')}>Shop Now</button>
+            </div>
+
+            <div className = "mens-clothing-item-container">
+                <div><img src = {MensClothing} width="180" height="200"/></div>
+                <div className = "item-container">MEN'S CLOTHING</div>
+                <div className = "categories-line"></div>
+
+                <div><button onClick = { () => filterByCategories("men's clothing")}>Shop Now</button></div>
+            </div>
+
+            <div className = "womens-clothing-item-container">
+                <div><img src = {WomensClothing} width="200" height="200"/></div>
+                <div className = "item-container">WOMEN'S CLOTHING</div>
+                <div className = "categories-line"></div>
+
+                <div><button onClick = { () => filterByCategories("women's clothing")}>Shop Now</button></div>
+            </div>
         </div>
 
-        <div>
-            {filter &&  
-                <div>
-                    <h2>Current Category: {filter}</h2>
-                </div> 
-            }    
-        </div>
+           <h2 className = "products-title">New Products</h2>
+            <div className = "categories-title-line"></div>
 
             <div className = "products-container">
 
@@ -203,7 +256,7 @@ function ProductsPage(){
                     <div key = {product.id} className ="flex-container">
                         <div className = "text-container">
                             <div className = "product-image-container">
-                                <img src = {product.image} alt = {product.title} width="300"/>
+                                <img src = {product.image} alt = {product.title} width="200" height="230"/>
                             </div>
                             <div className = "product-title">{product.title}</div>
                             <div className = "product-price"><p>${product.price}</p></div>
@@ -212,7 +265,6 @@ function ProductsPage(){
                     </div>
                 )}
             </div>
-            
         <Footer/>
     </div>
     )
