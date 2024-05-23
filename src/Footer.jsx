@@ -21,11 +21,23 @@ function Footer() {
             <div className = "columns-container">
                 <div className = "column1-container">
                     <div className="footer-title">Menu</div>
-                    <div className="footer-item"><button className="footer-btn-container">Categories</button></div>
-                    <div className="footer-item"><button className="footer-btn-container">Deals</button></div>
-                    <div className="footer-item"><button className="footer-btn-container">Shop</button></div>
-                    <div className="footer-item"><button className="footer-btn-container"> Contacts</button></div>
-                </div>
+                        <div className="footer-item">
+                            <button className="footer-btn-container">
+                                Categories
+                            </button></div>
+                        <div className="footer-item">
+                            <button className="footer-btn-container">
+                                Deals
+                            </button></div>
+                        <div className="footer-item">
+                            <button className="footer-btn-container">
+                                Shop
+                            </button></div>
+                        <div className="footer-item">
+                            <button className="footer-btn-container"> 
+                                Contacts
+                            </button></div>
+                    </div>
 
                 <div className = "column2-container">
                     <div className="footer-title">Services</div>

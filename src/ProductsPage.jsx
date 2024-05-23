@@ -190,7 +190,7 @@ function ProductsPage(){
         </Modal>
 
         <div className="shop-container">
-            <div className = "shopPage-img-container"><img src = {ShopPageImage} alt = "shoppageimage" /></div>
+            <div className = "shopPage-img-container"><img src = {ShopPageImage} alt = "shoppageimage" width="1900" /></div>
         </div>
 
         <div className = "gurantees-container">
