@@ -7,7 +7,7 @@ shopping cart management and secure checkout.
 
 ## Features
 
-- Produce Browsing: Browse and search products by category, price and rating
+- Produce Browsing: Browse and search products by category
 - Shopping Cart: Add, remove and update items in the shoping cart 
 - Order Management: Place orders, and view order history 
 
