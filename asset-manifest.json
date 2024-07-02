@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Ecommerce-App/static/css/main.3e2a5a9f.css",
+    "main.js": "/Ecommerce-App/static/js/main.05728a68.js",
+    "static/media/women's_clothing.png": "/Ecommerce-App/static/media/women's_clothing.0db0ea9a301dacfa68da.png",
+    "static/media/mens_clothing.png": "/Ecommerce-App/static/media/mens_clothing.b98fde24f81cd49a65e9.png",
+    "static/media/electronics.png": "/Ecommerce-App/static/media/electronics.8521807727e5060925a2.png",
+    "static/media/jewelerry.png": "/Ecommerce-App/static/media/jewelerry.9b797e162f8dddd96373.png",
+    "static/media/banner.png": "/Ecommerce-App/static/media/banner.e09221cfe28f80218920.png",
+    "index.html": "/Ecommerce-App/index.html",
+    "main.3e2a5a9f.css.map": "/Ecommerce-App/static/css/main.3e2a5a9f.css.map",
+    "main.05728a68.js.map": "/Ecommerce-App/static/js/main.05728a68.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3e2a5a9f.css",
+    "static/js/main.05728a68.js"
+  ]
+}
