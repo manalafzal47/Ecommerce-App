@@ -1,6 +1,6 @@
 import './App.css';
 import ProductsPage from './ProductsPage';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route , Routes, Switch} from 'react-router-dom'
 
 const App = () => {
   return (
