@@ -16,6 +16,7 @@ import MensClothing from "./styles/mens_clothing.png";
 import Jewelerry from "./styles/jewelerry.png";
 import Electronics from "./styles/electronics.png";
 import Cart from "./styles/cart.png";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function ProductsPage(){
     const [products, setProducts] = useState([]);
