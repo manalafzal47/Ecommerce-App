@@ -1,7 +1,7 @@
 // Fetch API Link: https://fakestoreapi.com/docs
 
 import {NavLink} from 'react-router-dom';
-import Nav from 'react-bootstrap/Nav';
+import { Nav, Navbar, Container } from 'react-bootstrap'; // Ensure you have this line
 import React from "react";
 import {useState,useEffect} from "react";
 import {Input, Space, Dropdown, Modal} from 'antd';
